@@ -29,19 +29,16 @@ class FeedViewCell: UITableViewCell {
                 }
             }
         }
-
         captionLabel.text = post.caption
 
         if let date = post.createdAt {
             dateLabel.text = DateFormatter.postFormatter.string(from: date)
         }
-
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
         postImageView.image = nil
-
         imageDataRequest?.cancel()
     }
 }

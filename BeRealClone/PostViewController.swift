@@ -16,19 +16,12 @@ class PostViewController: UIViewController {
 
     @IBAction func onPickedImageTapped(_ sender: UIBarButtonItem) {
         var config = PHPickerConfiguration()
-
         config.filter = .images
-
         config.preferredAssetRepresentationMode = .current
-
         config.selectionLimit = 1
-
         let picker = PHPickerViewController(configuration: config)
-
         picker.delegate = self
-
         present(picker, animated: true)
-
     }
 
     @IBAction func onShareTapped(_ sender: Any) {
@@ -43,7 +36,7 @@ class PostViewController: UIViewController {
         let imageFile = ParseFile(name: "image.jpg", data: imageData)
 
         var post = Post()
-
+        
         post.imageFile = imageFile
         post.caption = captionTextField.text
         post.user = User.current

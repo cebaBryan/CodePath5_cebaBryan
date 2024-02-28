@@ -16,7 +16,6 @@ class LoginViewController: UIViewController {
               let password = passwordField.text,
               !username.isEmpty,
               !password.isEmpty else {
-
             showMissingFieldsAlert()
             return
         }
@@ -26,14 +25,11 @@ class LoginViewController: UIViewController {
             switch result {
             case .success(let user):
                 print("✅ Successfully logged in as user: \(user)")
-
                 NotificationCenter.default.post(name: Notification.Name("login"), object: nil)
-
             case .failure(let error):
                 self?.showAlert(description: error.localizedDescription)
             }
         }
-
     }
 
     private func showAlert(description: String?) {
